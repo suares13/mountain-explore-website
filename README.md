@@ -35,6 +35,9 @@ O website incorpora os requisitos obrigatórios da atividade, demonstrando o dom
 * **SEO Básico:** Utilização de meta tags (`description`, `keywords`) e atributos `alt` em imagens para melhorar a indexação por motores de busca e acessibilidade.
 * **Organização do Código:** O código está bem estruturado em arquivos separados (`.html`, `.css`, `.js`), com comentários explicativos para facilitar a compreensão e manutenção.
 
+## Link do Projeto
+https://mountain-explore-website.vercel.app/
+
 ## Contato
 
 Desenvolvido por: Victória Suares
