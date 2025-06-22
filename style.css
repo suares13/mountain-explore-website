@@ -1,0 +1,855 @@
+/* Importa a fonte do Google Fonts. */
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+/* Reset básico para começar do zero. */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Ubuntu', sans-serif; /* A fonte principal do site. */
+}
+
+/* Estilos globais do corpo. */
+body{
+    width: 100%;
+    min-height: 100vh; /* Garante que ocupa a altura toda. */
+    display: flex;
+    flex-direction: column; /* Ajuda o rodapé a ficar no fim. */
+}
+
+/* Estilos do Cabeçalho (fixo no topo). */
+header{
+    width: 100%;
+    height: 100px;
+    position: fixed; /* Fica no topo da tela. */
+    top: 0;
+    left: 0;
+    background: rgba(32, 55, 88, 0.9); /* Fundo azul escuro semi-transparente. */
+    display: flex; /* Para alinhar logo e menu. */
+    justify-content: space-around;
+    align-items: center;
+    z-index: 100; /* Sempre por cima. */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+header .logo img{
+    width: 200px;
+    height: 100%;
+}
+/* Menu de navegação normal (desktop). */
+header .menu ul{
+    display: flex;
+}
+header .menu ul li{
+    list-style: none; /* Sem bolinhas. */
+    padding: 0 20px;
+}
+header .menu ul li a{
+    text-decoration: none;
+    text-transform: uppercase;
+    color: #f9fcff; /* Cor clara. */
+    font-size: 1.1rem;
+    transition: color 0.3s ease; /* Transição suave no hover. */
+}
+header .menu ul li a:hover {
+    color: #a6c9f0;
+}
+/* Menu mobile (escondido por padrão). */
+header .menu-mobile{
+    display: none; /* Só aparece com JavaScript. */
+    width: 30%;
+    height: 100vh;
+    background: rgba(0,0,0,0.95);
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    z-index: 99;
+}
+header .menu-mobile ul li{
+    padding: 60px 0;
+}
+header .menu-mobile ul li a{
+    text-decoration: none;
+    color: #f9fcff;
+    font-weight: 500;
+}
+/* Botão do menu (hambúrguer) - aparece só no mobile. */
+header .menu_btn{
+    display: none; /* Escondido no desktop. */
+    position: fixed;
+    right: 60px;
+    z-index: 99;
+}
+header .menu_btn img{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+/* Estilos da Seção Principal (Home) */
+#home .container{
+    width: 100%;
+    min-height: 100vh;
+    background: url(image/bg-1.png) no-repeat; /* Imagem de fundo. */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 120px; /* Espaço para o cabeçalho. */
+}
+#home .container .content{
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-bottom: 50px;
+    text-align: center;
+}
+#home .container .content h1{
+    color: #f9fcff;
+    font-size: 6rem;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+#home .container .content p{
+    width: 800px;
+    max-width: 90%;
+    color: #f9fcff;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    margin-top: 20px;
+    line-height: 1.5;
+}
+#home .container .content button{
+    margin-top: 50px;
+    padding: 15px 30px;
+    font-weight: 600;
+    color: #4a75a6;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+#home .container .content button:hover {
+    background-color: #f0f0f0;
+}
+#home .container .content a button { /* Apenas para garantir que o link não afete o botão */
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Estilos da Seção Sobre */
+#about .container{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 80px 20px;
+    padding-top: 120px; /* Espaço para o cabeçalho. */
+    background-color: #f9fcff;
+}
+#about .container h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 15px;
+    border: 3px solid #4a75a6;
+    border-radius: 50%; /* Faz um círculo. */
+    color: #4a75a6;
+    text-align: center;
+    margin-bottom: 10px;
+}
+#about .container p{
+    margin-top: 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #4a75a6;
+    text-align: center;
+    margin-bottom: 30px;
+}
+#about .container h1{
+    font-size: 3rem;
+    font-weight: 400;
+    color: #203758;
+    text-align: center;
+    line-height: 1.2;
+    margin-bottom: 50px;
+}
+#about .container .call{
+    width: 80%;
+    max-width: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin-top: 0;
+    gap: 40px; /* Espaço entre texto e imagem. */
+    flex-wrap: wrap; /* Quebra linha em telas pequenas. */
+}
+#about .container .call .left,
+#about .container .call .right{
+    width: calc(50% - 20px);
+    min-width: 300px;
+    letter-spacing: 1px;
+    font-size: 1.rem;
+    color: #203758;
+    text-align: justify;
+    line-height: 1.8;
+}
+#about .container .call .left p:not(:last-child) {
+    margin-bottom: 20px;
+}
+/* Reordena imagem antes do texto no mobile. */
+#about .container .call .right {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    order: 1;
+}
+#about .container .call .left {
+    order: 2;
+}
+#about .container img[src*="bg-2.png"]{
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 0;
+    display: block;
+}
+#about .container .content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    max-width: 1000px;
+    margin-top: 80px;
+}
+#about .container .content h1 {
+    font-size: 2.5rem;
+    margin-top: 0;
+    margin-bottom: 25px;
+    color: #203758;
+}
+#about .container .content p {
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: none;
+    margin-top: 0;
+    text-align: center;
+    width: 70%;
+    max-width: 800px;
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 40px;
+}
+#about .container .content button {
+    margin-top: 0;
+    padding: 15px 30px;
+    font-size: 1.1rem;
+    background-color: #4a75a6;
+    color: #f9fcff;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+#about .container .content button:hover {
+    background-color: #3b6088;
+}
+#about .container .content a button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Estilos da Seção Notícias */
+#news .container{
+    width: 100%;
+    min-height: 100vh;
+    background: url(image/bg-3.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 80px 20px;
+    padding-top: 120px; /* Espaço para o cabeçalho. */
+    flex-wrap: wrap;
+}
+#news .container .left{
+    width: 40%;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 20px;
+}
+#news .container .left h2{
+    width: max-content;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 400;
+    padding: 15px;
+    border: 3px solid #f9fcff;
+    border-radius: 50%;
+    color: #f9fcff;
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    margin: 0 auto;
+}
+#news .container .left p{
+    margin-top: 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #f9fcff;
+    text-align: center;
+}
+#news .container .left h1{
+    margin-top: 30px;
+    margin-bottom: 30px;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #f9fcff;
+    text-align: center;
+}
+#news .container .left span{
+    font-family: tahoma;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    color: #f9fcff;
+    text-align: center;
+    line-height: 1.6;
+}
+
+#news .container .right{
+    width: 45%;
+    min-height: 40vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 20px;
+}
+#news .container .right h3{
+    background: rgba(255,255,255,0.6);
+    color: #203758;
+    font-size: 0.9rem;
+    font-weight: 500;
+    padding: 15px;
+    text-transform: uppercase;
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-align: center;
+    margin-bottom: 15px;
+}
+#news .container .right .box{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background: rgba(203,221,249,0.3); /* Fundo semi-transparente das notícias. */
+    margin-top: 10px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    padding: 15px;
+    border-radius: 8px;
+    transition: transform 0.3s ease; /* Efeito no hover. */
+}
+#news .container .right .box:hover {
+    transform: translateY(-5px); /* Notícia "levanta". */
+}
+#news .container .right .box h3{
+    background: none;
+    color: #f9fcff;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    text-align: left;
+    box-shadow: none;
+    padding: 0;
+    text-transform: none;
+}
+#news .container .right .box .info{
+    margin-left: 0;
+    display: flex;
+    justify-content: flex-start;
+    gap: 20px;
+    margin-bottom: 15px;
+}
+#news .container .right .box .info span{
+    color: #d4e0f4;
+    font-weight: 500;
+    font-size: 0.9rem;
+    line-height: 1.4;
+    text-transform: none;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+#news .container .right .box p{
+    color: #f9fcff;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    line-height: 1.6;
+    margin-top: 0;
+    text-transform: none;
+    padding: 0;
+    border: none;
+    text-align: justify;
+}
+
+/* Estilos da Seção Contato */
+#contact .container{
+    width: 100%;
+    min-height: 100vh;
+    background: url(image/bg-4.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 0;
+    padding-top: 120px; /* Espaço para o cabeçalho. */
+}
+#contact .container .center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    padding: 20px 0;
+}
+#contact .container .center h2{
+    font-size: 1.5rem;
+    font-weight: 400;
+    border: 3px solid #f9fcff;
+    border-radius: 50%;
+    color: #4a75a6; /* Cor do texto "CONTATO". */
+    padding: 15px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-shadow: 0 0 5px rgba(0,0,0,0.8);
+    text-align: center;
+}
+#contact .container .center p{
+    margin-top: 10px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    color: #4a75a6; /* Cor do texto "FALE CONOSCO". */
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+}
+#contact .container .center h1{
+    margin-top: 30px;
+    font-size: 3rem;
+    font-weight: 400;
+    color: #f9fcff;
+    text-align: center;
+}
+
+/* Estilos para o Formulário de Contato. */
+.contact-form-section {
+    width: 80%;
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    text-align: left;
+    color: #203758;
+}
+.contact-form-section h2 {
+    color: #203758;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 2rem;
+    /* Resetando estilos de h2 herdados. */
+    border: none;
+    padding: 0;
+    box-shadow: none;
+    text-shadow: none;
+}
+.styled-form label {
+    display: block;
+    margin-bottom: 8px;
+    color: #555;
+    font-weight: bold;
+}
+.styled-form input[type="text"],
+.styled-form input[type="email"],
+.styled-form textarea {
+    width: calc(100% - 24px); /* Largura total menos padding. */
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 1rem;
+    background-color: #fefefe;
+}
+.styled-form input[type="text"]:focus,
+.styled-form input[type="email"]:focus,
+.styled-form textarea:focus {
+    border-color: #4a75a6; /* Borda azul ao focar. */
+    outline: none;
+    box-shadow: 0 0 0 0.2rem rgba(74, 117, 166, 0.25);
+}
+.styled-form button {
+    display: block;
+    width: 100%;
+    padding: 15px 20px;
+    background-color: #4a75a6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+.styled-form button:hover {
+    background-color: #3b6088;
+}
+/* Estilos para mensagens de validação (JS injeta). */
+#formMessages {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+#formMessages p {
+    margin: 5px 0;
+}
+#formMessages p[style*="green"] { /* Estilo para sucesso. */
+    background-color: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+#formMessages p[style*="red"] { /* Estilo para erro. */
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+#contact .container .card{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 20px 0;
+    margin-top: 20px;
+}
+#contact .container .card .box{
+    width: 280px;
+    min-height: 380px;
+    display: flex;
+    flex-direction:column;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px;
+    padding: 30px 20px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Efeito hover no card. */
+    color: #203758;
+}
+#contact .container .card .box:hover {
+    transform: translateY(-10px); /* Card "levanta". */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.3);
+}
+#contact .container .card .box img{
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    transition: transform 0.3s ease-in-out; /* Efeito hover na imagem. */
+    filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+}
+#contact .container .card .box img:hover {
+    transform: scale(1.1); /* Ícone aumenta. */
+}
+#contact .container .card .box h3{
+    color: #203758;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    text-align: center;
+}
+#contact .container .card .box p{
+    color: #555;
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: 25px;
+    line-height: 1.5;
+    text-transform: none;
+    padding: 0 10px;
+    flex-grow: 1;
+}
+#contact .container .card .box button{
+    padding: 10px 20px;
+    border: none;
+    background: #4a75a6;
+    color: #f9fcff;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    margin-top: auto;
+}
+#contact .container .card .box button:hover {
+    background-color: #3b6088;
+}
+#contact .container .card .box a button {
+    display: inline-block;
+    text-decoration: none;
+}
+
+/* Rodapé */
+footer{
+    width: 100%;
+    height: 60px;
+    background: #203758;
+    text-align: center;
+    margin-top: auto; /* Empurra para o final da página. */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+}
+footer span{
+    color: #f9fcff;
+}
+footer a{
+    text-decoration: none;
+    color: #4a75a6;
+}
+/* Media Queries (Responsividade!) */
+
+/* Para telas até 1060px (tablets e laptops menores). */
+@media screen and (max-width: 1060px) {
+    /* Home */
+    #home .container .content{
+        width: 100%;
+        padding: 0 20px;
+    }
+    #home .container .content h1{
+        font-size: 4rem;
+    }
+    #home .container .content p{
+        width: 80%;
+        max-width: 500px;
+        font-size: 0.9rem;
+        letter-spacing: 2px;
+    }
+    /* About */
+    #about .container h1{
+        font-size: 2.5rem;
+    }
+    #about .container .call{
+        width: 90%;
+        flex-direction: column; /* Colunas viram linhas. */
+        align-items: center;
+    }
+    #about .container .call .left,
+    #about .container .call .right{
+        width: 90%;
+        font-size: 0.9rem;
+        text-align: center;
+    }
+    #about .container img[src*="bg-2.png"]{
+        width: 90%;
+    }
+    #about .container .content h1 {
+        font-size: 2rem;
+    }
+    #about .container .content p {
+        width: 90%;
+    }
+    /* News/Noticias */
+    #news .container{
+        flex-direction: column;
+    }
+    #news .container .left{
+        width: 90%;
+    }
+    #news .container .left h1{
+        font-size: 2.5rem;
+    }
+    #news .container .right{
+        width: 80%;
+        margin-top: 40px;
+    }
+    #news .container .right .box{
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    #news .container .right .box h3{
+        font-size: 1rem;
+    }
+    #news .container .right .box .info{
+        flex-direction: column;
+        gap: 5px;
+    }
+    #news .container .right .box .info span{
+        font-size: 0.8rem;
+    }
+    /* Contact */
+    .contact-form-section {
+        width: 90%;
+        padding: 25px;
+    }
+    .contact-form-section h2 {
+        font-size: 1.5rem;
+    }
+    .styled-form input[type="text"],
+    .styled-form input[type="email"],
+    .styled-form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .styled-form button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    #contact .container .center h1{
+        font-size: 2.5rem;
+    }
+    #contact .container .card{
+        flex-direction: row; /* Tenta dois por linha. */
+        justify-content: center;
+        padding: 0;
+    }
+    #contact .container .card .box{
+        width: 45%;
+        margin: 15px;
+        padding: 25px 15px;
+        min-height: 320px;
+    }
+    #contact .container .card .box img{
+        width: 60px;
+        height: 60px;
+    }
+    #contact .container .card .box h3{
+        font-size: 1rem;
+    }
+    #contact .container .card .box p{
+        font-size: 0.8rem;
+    }
+    #contact .container .card .box button{
+        padding: 8px 18px;
+    }
+    footer {
+        position: relative; /* Volta para o fluxo normal. */
+        margin-top: 50px;
+    }
+}
+
+/* Para telas até 780px (smartphones). */
+@media screen and (max-width: 780px) {
+    header .logo img{
+        width: 150px;
+    }
+    header .menu{
+        display: none; /* Esconde o menu desktop. */
+    }
+    header .menu_btn{
+        display: block; /* Mostra o botão hambúrguer. */
+        right: 20px;
+    }
+    header .menu-mobile{
+        width: 50%; /* Menu mobile ocupa metade da tela. */
+    }
+
+    /* Home */
+    #home .container .content h1{
+        font-size: 2.5rem;
+    }
+    #home .container .content p{
+        font-size: 0.8rem;
+        padding: 0 20px;
+        width: 90%;
+    }
+
+    /* About/Sobre */
+    #about .container h1{
+        font-size: 1.8rem;
+    }
+    #about .container .call{
+        width: 95%;
+    }
+    #about .container .call .left,
+    #about .container .call .right{
+        width: 95%; /* Ocupa quase toda a largura. */
+        margin-top: 20px;
+        text-align: justify;
+    }
+    #about .container img[src*="bg-2.png"]{
+        width: 95%;
+    }
+    #about .container .content h1 {
+        font-size: 1.8rem;
+    }
+    #about .container .content p {
+        width: 95%;
+    }
+
+    /* News */
+    #news .container .left h1{
+        font-size: 1.8rem;
+    }
+    #news .container .right{
+        width: 95%;
+    }
+    #news .container .right .box{
+        align-items: flex-start;
+        padding: 15px;
+    }
+    #news .container .right .box h3{
+        font-size: 1rem;
+    }
+    #news .container .right .box .info{
+        flex-direction: column;
+    }
+    #news .container .right .box .info span{
+        font-size: 0.8rem;
+    }
+    #news .container .right .box p{
+        font-size: 0.8rem;
+    }
+
+    /* Contact/Contato */
+    .contact-form-section {
+        width: 95%;
+        padding: 15px;
+    }
+    .contact-form-section h2 {
+        font-size: 1.5rem;
+    }
+    .styled-form input[type="text"],
+    .styled-form input[type="email"],
+    .styled-form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .styled-form button {
+        font-size: 1rem;
+        padding: 12px;
+    }
+    #contact .container .center h1{
+        font-size: 1.8rem;
+    }
+    #contact .container .card{
+        flex-direction: column; /* Um card por linha. */
+    }
+    #contact .container .card .box{
+        width: 90%;
+    }
+    footer span{
+        font-size: 0.7rem;
+    }
+}

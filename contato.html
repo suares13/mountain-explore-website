@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mountain - Contato e Aventuras</title>
+    <meta name="description" content="Entre em contato para saber mais sobre nossos roteiros e descubra as melhores montanhas para esqui, escalada e ciclismo ao redor do mundo.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="image/logo.png" alt="Logo do Site Mountain, uma montanha estilizada">
+        </div>
+        <div class="menu">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+        <div class="menu-mobile">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="contato.html">Contato</a></li>
+            </ul>
+        </div>
+        <div class="menu_btn">
+            <img src="image/btn4.png" alt="Botão de menu para celular">
+        </div>
+    </header>
+
+    <section id="contact">
+        <div class="container">
+            <div class="center">
+                <h2>CONTATO</h2>
+                <p>FALE CONOSCO</p>
+                <h1>Planeje sua Próxima Aventura Conosco!</h1>
+            </div>
+
+            <div class="contact-form-section">
+                <h2>Envie sua Mensagem</h2>
+                <form id="contactForm" class="styled-form">
+                    <label for="name">Nome:</label>
+                    <input type="text" id="name" name="name" required>
+
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+
+                    <label for="message">Mensagem:</label>
+                    <textarea id="message" name="message" rows="5" required></textarea>
+
+                    <button type="submit">Enviar Mensagem</button>
+                </form>
+                <div id="formMessages"></div>
+            </div>
+
+            <div class="center">
+                <h2>DESTINOS</h2>
+                <p>NOSSAS RECOMENDAÇÕES</p>
+                <h1>Melhores Montanhas para sua Aventura</h1>
+            </div>
+
+            <div class="card">
+                <div class="box">
+                    <img src="image/canoa.png" alt="Ícone de Esqui">
+                    <h3>Esqui nos Andes Chilenos</h3>
+                    <p>Descubra as pistas de classe mundial de Valle Nevado e Portillo, com neve fresca e vistas espetaculares. **Melhor época: Junho a Setembro.**</p>
+                    <a href="news.html"><button>Ver Passeios</button></a> </div>
+                <div class="box">
+                    <img src="image/mountain.png" alt="Ícone de Escalada Livre">
+                    <h3>Escalada na Serra do Cipó</h3>
+                    <p>A Serra do Cipó (MG, Brasil) oferece rotas variadas para escaladores de todos os níveis, com paisagens deslumbrantes. **Melhor época: Abril a Outubro.**</p>
+                    <a href="news.html"><button>Ver Passeios</button></a> </div>
+                <div class="box">
+                    <img src="image/bike.png" alt="Ícone de Bicicleta de Montanha">
+                    <h3>Bike na Trilha da Bocaina</h3>
+                    <p>Aventura desafiadora pela Serra da Bocaina (SP/RJ, Brasil), com trechos históricos e natureza exuberante. **Melhor época: Maio a Setembro.**</p>
+                    <a href="news.html"><button>Ver Passeios</button></a> </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <span>Copyright 2025 <a href="#"> FRONT </a> Todos os Direitos Reservados</span>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
